@@ -19,7 +19,7 @@ socket.connect(server)
 router(app);
 
 
-app.use('/'+ config.publicRoute, express.static('public'));
+// app.use('/'+ config.publicRoute, express.static('public'));
 
 
 server.listen(config.port, function (){
