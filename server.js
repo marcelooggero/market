@@ -9,8 +9,8 @@ const db = require('./db')
 const router = require('./network/routes')
 const config = require('./config')
 
+const { DB_URL } = process.env
 db(config.dbUrl)
-
 app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -19,10 +19,11 @@ socket.connect(server)
 router(app);
 
 
-// app.use('/'+ config.publicRoute, express.static('public'));
+app.use('/'+ config.publicRoute, express.static('public'));
 
 
 server.listen(config.port, function (){
     console.log('La app esta escuchando en ' + ':' +  config.host + config.port);
-
+    
+    
 });
